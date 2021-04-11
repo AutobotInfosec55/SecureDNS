@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="style2.css">
+
+	<title>Mentee Form</title>
+</head>
+<body>
+	<div class="container">
+		<div class="mentee-email">
+            <p class="login-text" style="font-size: 2rem; font-weight: 700;">Create Mentee</p>
+			<div class="input-group">
+				<input type="text" placeholder="Enter Name" id="name" name="name" required>
+			</div>
+			<div class="input-group">
+				<input type="email" placeholder="Email" id="email" name="email" required>
+			</div>
+			<div class="input-group">
+				<input type="password" placeholder="Password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+				<input type="password" placeholder="Confirm Password" required>
+			</div>
+			<div class="form-group">
+    			<label for="age-group-select">Select Age Group</label>
+    			<select class="form-control" id="age_grp" name="age_grp">
+      				<option selected>Select group</option>
+      				<option value="young">Young(1-12)</option>
+      				<option value="teen">teen(13-19)</option>
+      				<option value="adult">Adult(20-30)</option>
+    			</select>
+  			</div><br/>
+  			<div class="form-group">
+				<p class="text-primary">BlackList Domains</p>
+			</div>
+  			<!--Whitelist and Blacklist site textarea-->
+  				<textarea class="lg-textarea form-control" id="blacklist" rows="3" cols="30" name="blacklist"></textarea>
+
+			<div class="input-group">
+				<button name="submit" onclick="submission()" class="btn">Create</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	
+	function submission(){
+		var jwt = getJwtToken()
+		
+		var name = document.getElementById("name").value;
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("password").value;
+		var has_mentor = "false";
+		var blacklist = document.getElementById("blacklist").value;
+		var age_grp = document.getElementById("age_grp").value;
+
+		var params = "email="+email+"&name="+name+"&password="+password+"&age_grp="+age_grp+"&blacklist="+blacklist;
+
+
+		var http = new XMLHttpRequest();
+		
+		http.open('POST','http://101.53.147.32:8080/createMentee',true);
+		
+		http.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		http.setRequestHeader('Authorization','bearer '+jwt)
+
+		http.onreadystatechange = function(){
+			if(http.readyState==4 && http.status==200){
+				alert(http.responseText)
+				window.location.href="/dashboard/ltr/createMore.html";
+			} else if (http.readyState==4){
+				alert("Registration of Mentee Successfull!");
+			}
+		}
+		
+		http.send(params);
+
+	}
+
+	function getJwtToken(){
+		try {
+			var jwt = localStorage.getItem("jwt");
+			return jwt
+		} catch(e){
+		alert("It seems you have not logged in. Please login and try again");
+		}
+		
+	}
+</script>
+
+
+</html>

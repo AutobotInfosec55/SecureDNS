@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="">
+    <meta name="description"
+        content="Dashboard for CPF DNS">
+    <meta name="robots" content="noindex,nofollow">
+    <title>DNS Dashboard</title>
+    <link rel="canonical" href="https://www.cyberpeacefoundation.com/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <!-- Custom CSS -->
+    <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <div class="user-profile d-flex no-block dropdown m-t-20">
+                                <div class="user-pic"><img src="../../assets/images/users/1.jpg" alt="users"
+                                        class="rounded-circle" width="40" /></div>
+                                <div class="user-content hide-menu m-l-10">
+                                    <a href="#" class="" id="Userdd" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <h5 class="m-b-0 user-name font-medium">User-name</h5>
+                                        <h6>00-01-02-03-04-05</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="p-15 m-t-10"><a href="javascript:void(0)"
+                                class="btn d-block w-100 create-btn text-white no-block d-flex align-items-center"><i
+                                    class="fa fa-plus-square"></i> <span class="hide-menu m-l-5">Dashboard</span> </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+        </aside>
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row align-items-center">
+                    <div class="col-5">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Website Stats</h4>
+                                        <h5 class="card-subtitle">Site Status</h5>
+                                    </div>
+                                    <div class="ms-auto d-flex no-block align-items-center">
+                                        <ul class="list-inline font-12 dl m-r-15 m-b-0">
+                                            <li class="list-inline-item text-success"><i class="fa fa-circle"></i>Normal
+                                            </li>
+                                            <li class="list-inline-item text-danger"><i class="fa fa-circle"></i>Blocked
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="campaign ct-charts"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Blocked URL</h4>
+                                <div class="feed-widget">
+                                    <ul class="list-style-none feed-body m-0 p-b-20">
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-danger"></div>https://google.com
+                                        </li>
+                                        <li class="feed-item">
+											<div class="feed-icon bg-danger"></div>https://facebook.com
+                                        </li>
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-danger"></div>https://gmail.com
+                                        </li>
+                                        <li class="feed-item">
+                                            <div class="feed-icon bg-danger"></div> https://yahoo.com
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-md-flex">
+                                    <div>
+                                        <h4 class="card-title">Visited URL</h4>
+                                        <h5 class="card-subtitle"></h5>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <div class="dl">
+                                            <select class="form-select shadow-none">
+                                                <option value="0" selected>Monthly</option>
+                                                <option value="1">Daily</option>
+                                                <option value="2">Weekly</option>
+                                                <option value="3">Yearly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- title -->
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table v-middle">
+                                    <thead>
+                                        <tr class="bg-light">
+                                            <th class="border-top-0">Links</th>
+                                            <th class="border-top-0">Classfication</th>
+                                            <th class="border-top-0">User Agent</th>
+                                            <th class="border-top-0">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">https://cyberpeacefoundation.com</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Social</label>
+                                            </td>
+                                            <td>Mozilla/5.0 (Linux; Android 7.0; SM-G930VC Build/NRD90M; wv)</td>
+                                            <td>
+                                                <h5 class="label label-success">200 OK</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">https://rediffmail.com</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Web-based mail</label>
+                                            </td>
+                                            <td>Chrome/62.0.3202.84 Mobile Safari/537.36</td>
+                                            <td>
+                                                <h5 class="label label-success">200 OK</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">https://youtube.com</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Entertainment</label>
+                                            </td>
+                                            <td>Chrome/62.0.3202.84 Mobile Safari/537.36</td>
+                                            <td>
+                                                <h5 class="label label-success">200 OK</h5>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="">
+                                                        <h4 class="m-b-0 font-16">https://miniclip.com</h4>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <label class="label label-success">Games</label>
+                                            </td>
+                                            <td>Mozilla/5.0 (Linux; Android 7.0; SM-G930VC Build/NRD90M; wv)</td>
+                                            <td>
+                                                <h5 class="label label-success">200 OK</h5>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <footer class="footer text-center">
+                All Rights Reserved by <a
+                    href="https://www.cyberpeacefoundation.com">CPF</a>.
+            </footer>
+        </div>
+    </div>
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dist/js/app-style-switcher.js"></script>
+    <script src="../../dist/js/waves.js"></script>
+    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="../../dist/js/custom.js"></script>
+    <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
+</body>
+</html>
